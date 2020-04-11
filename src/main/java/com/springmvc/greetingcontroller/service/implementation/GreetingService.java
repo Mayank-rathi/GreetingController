@@ -2,8 +2,8 @@ package com.springmvc.greetingcontroller.service.implementation;
 
 import com.springmvc.greetingcontroller.model.Greeting;
 import com.springmvc.greetingcontroller.model.User;
-import com.springmvc.greetingcontroller.service.IGreetingService;
 import com.springmvc.greetingcontroller.repository.IGreetingRepository;
+import com.springmvc.greetingcontroller.service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +20,10 @@ public class GreetingService implements IGreetingService {
 
     @Override
     public Greeting addGreeting(User user) {
-        String message =user.toString().isEmpty()?
-                "Hello World ":
-                user.getFirstName()+" "+user.getLastName();
-        Greeting greeting=new Greeting();
+        String message = user.toString().isEmpty() ?
+                "Hello World " :
+                user.getFirstName() + " " + user.getLastName();
+        Greeting greeting = new Greeting();
         greeting.setId(counter.incrementAndGet());
         greeting.setMessage(message);
         return greetingRepository.save(greeting);
@@ -32,6 +32,11 @@ public class GreetingService implements IGreetingService {
     @Override
     public Greeting getGreetingById(long id) {
         return greetingRepository.findById(id).get();
+    }
+
+    @Override
+    public Greeting deleteGreetingById(long id) {
+        return greetingRepository.deleteById(id);
     }
 
 }

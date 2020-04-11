@@ -29,4 +29,10 @@ public class GreetingController {
         return greetingService.getGreetingById(id);
     }
 
+    @GetMapping("/deleteId")
+    public Greeting deleteGreetingById(@RequestParam(value = "id") long id) {
+        return greetingService.deleteGreetingById(id);
+    }
+
+
 }
