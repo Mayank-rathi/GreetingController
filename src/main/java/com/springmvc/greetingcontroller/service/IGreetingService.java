@@ -9,4 +9,10 @@ public interface IGreetingService {
     Greeting getGreetingById(long id);
 
     Greeting deleteGreetingById(long id);
+
+    Greeting deleteGreeting(long id);
+
+    Greeting update(Greeting greeting, long id);
+
+    Greeting saveOrUpdate(Greeting greeting);
 }

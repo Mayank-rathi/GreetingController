@@ -10,6 +10,7 @@ import javax.persistence.Table;
 public class Greeting {
 
     @Id
+    @Column
     private Long id;
 
     @Column(name = "message")
